@@ -4,15 +4,23 @@ import dotenv from 'dotenv';
 dotenv.config("./.env");
 import connectDB from "./src/config/mongo.config.js"
 import {nanoid} from 'nanoid';
+import urlSchema from "./src/models/shorturl.model.js";
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
 app.post("/api/create",(req,res)=>{
     // res.send("Hello World");
-    const url=req.body;
-    console.log(url);
+    const {url}=req.body;
+    // const shortUrl=req.body;
+    const shortUrl=nanoid(10);
+    const newUrl=new urlSchema({
+        full_url:url,
+        short_url:shortUrl,
+    });
+    newUrl.save();
     res.send(nanoid(10));
+
 });
 
 app.listen(3000,()=>{
