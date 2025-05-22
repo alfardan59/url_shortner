@@ -20,8 +20,17 @@ app.post("/api/create",(req,res)=>{
     });
     newUrl.save();
     res.send(nanoid(10));
-
 });
+
+app.get("/:id",async (req,res)=>{
+    const {id}=req.params;
+    const url=await urlSchema.findOne({short_url:id});
+    if(url){
+        return res.redirect(url.full_url);
+    } else{
+        res.status(401).send("Not Found");
+    }
+})
 
 app.listen(3000,()=>{
     connectDB();
