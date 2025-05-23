@@ -7,13 +7,15 @@ import {nanoid} from 'nanoid';
 
 import short_url from './src/routes/short_url.route.js';
 import { redictFromShortUrl } from './src/controller/short_url.controller.js';
+import { errorHandler } from './src/utils/errorHandler.js';
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
 app.use("/api/create",short_url);
+app.get("/:id",redictFromShortUrl);
 
-app.get("/:id",redictFromShortUrl)
+app.use(errorHandler);
 
 app.listen(3000,()=>{
     connectDB();
