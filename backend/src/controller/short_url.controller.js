@@ -9,6 +9,6 @@ export const createShortUrl=async(req,res)=>{
 
 export const redictFromShortUrl=async(req,res)=>{
     const {id}=req.params;
-    const url=await getShortUrl(id);
-    res.redirect(url);
+    const url=await getShortUrl(id);   
+    res.redirect(url.full_url);
 }
