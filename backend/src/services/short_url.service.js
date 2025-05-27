@@ -17,6 +17,6 @@ export const createShortUrlWithUser =async (url,userId,slug=null) => {
     if(exist){
         throw new Error("Custom short URL already exists");
     }
-    await saveShortUrl(url,slug,userId);
+    await saveShortUrl(shortUrl,url,userId);
     return shortUrl;
 }
