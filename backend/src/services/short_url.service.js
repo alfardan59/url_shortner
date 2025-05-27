@@ -8,7 +8,6 @@ export const createShortUrlWithoutUser =async (url) => {
     }
     await saveShortUrl(shortUrl,url);
     return shortUrl;
-    
 }
 
 export const createShortUrlWithUser =async (url,userId,slug=null) => {
