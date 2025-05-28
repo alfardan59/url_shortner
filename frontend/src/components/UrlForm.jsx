@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { createShortUrl } from '../api/shortUrl.api'
+import { useSelector } from 'react-redux'
 import { QueryClient } from '@tanstack/react-query'
-import {queryClient} from '../main'
+import { queryClient } from '../main'
 
 const UrlForm = () => {
   
@@ -10,6 +11,7 @@ const UrlForm = () => {
   const [copied, setCopied] = useState(false)
   const [error, setError] = useState(null)
   const [customSlug, setCustomSlug] = useState("")
+  const {isAuthenticated} = useSelector((state) => state.auth)
 
   const handleSubmit = async () => {
     try{

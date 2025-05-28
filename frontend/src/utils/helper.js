@@ -13,9 +13,11 @@ export const checkAuth = async ({ context }) => {
         store.dispatch(login(user));
         const {isAuthenticated} = store.getState().auth;
         if(!isAuthenticated) return false;
-        return true;
+        return true
     } catch (error) {
         console.log(error)
-        return redirect({to: "/auth",})      
+        return redirect({to: "/auth",})
+        
+       
     }
 };

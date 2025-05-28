@@ -1,17 +1,16 @@
 import React, { useState } from 'react'
 import LoginForm from '../components/LoginForm'
-import RegisterForm from '../components/RegisterForm';
+import RegisterForm from '../components/RegisterForm'
 
 const AuthPage = () => {
 
-    const [login, setLogin] = useState(true);
-  return (
-    <div>
-      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-      {login ? <LoginForm state={setLogin}/> : <RegisterForm /> }
-    </div>
-    </div>
-  )
+    const [login, setLogin] = useState(true)
+
+    return (
+        <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
+            {login ? <LoginForm state={setLogin} /> : <RegisterForm state={setLogin} />}
+        </div>
+    )
 }
 
 export default AuthPage
