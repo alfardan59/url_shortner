@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { createShortUrl } from '../api/shortUrl.api'
 import { QueryClient } from '@tanstack/react-query'
-import { queryClient } from '../main'
+import {queryClient} from '../main'
 
 const UrlForm = () => {
   

@@ -1,12 +1,12 @@
 import AuthPage from "./pages/AuthPage";
 import HomePage from "./pages/HomePage";
 
-const App = () => {
+const RootLayout = () => {
   return (
     <>
-      <AuthPage />
+    <HomePage />
     </>
   )
 }
 
-export default App;
+export default RootLayout;
